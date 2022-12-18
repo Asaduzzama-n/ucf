@@ -1,0 +1,29 @@
+.cardBox{
+    width: 360px;
+    height: 380px;
+    background-color: #EEEEEE;
+    position: relative;
+    border-radius: 8px;
+}
+.cardImg img{
+    height: 225px;
+    width: 360px;
+}
+.textGroup{
+    /* margin-top: 20px; */
+    padding: 20px;
+    line-height: 40px;
+
+}
+.textGroup a{
+    position: absolute;
+    bottom: 20px;
+    text-decoration: none;
+    color: #455A64;
+}
+.textGroup  a:hover{
+    background-color: #FFFF;
+    padding:0px 20px;
+    border-radius: 10px;
+    color: #F78924;
+}

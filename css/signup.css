@@ -1,0 +1,116 @@
+body{
+    background-color: #f5e1da91!important;
+}
+.customSignUpContainer{
+    width: 50%;
+    height: auto;
+    /* background-color: #455A64; */
+    margin: auto;
+    padding: 30px;
+    /* display: flex; */
+    text-align: center;
+    background-color: #FFFF;
+    /* border-radius: 10px; */
+    border-radius: 10px;
+    margin-top: 100px;
+}
+/* .customSignUpContainer:hover{
+    background-color: #455a6416;
+} */
+.customSignUpContainer h1{
+    font-weight: bolder;
+    
+}
+.boxContainer{
+    border-radius: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.signupContainer{
+    
+    width: 100%;
+    /* background-color: #f9821231; */
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+}
+.inputStyle{
+    width: 100%;
+    outline: none;
+    margin: 10px 0px;
+    border: 2px solid #142F43;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0px 5px;
+}
+
+.selectCustomStyle{
+    
+    width: 70%!important;
+    margin: auto;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+    height: 30px;
+    border: 2px solid #142F43;
+
+}
+/* input[type = "file"]{
+    border: 2px solid #F98012;
+    border-radius: 5px;
+} */
+input[type="submit"]{
+    
+    width: 30%;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    margin-top: 20px;
+    color: #455A64;
+    font-size: large;
+    font-weight:500 ;
+    border: 2px solid #F98012;
+    
+}
+input[type="submit"]:hover{
+    background-color: #142F43;
+    color: #F98012;
+}
+.infoContainer{
+    width: 50%;
+    background-color: aquamarine;
+}
+@media only screen and (max-width: 900px) {
+    .customSignUpContainer{
+        width: 90%;
+    }
+}
+.error{
+    padding: 5px;
+    width: 70%;
+    margin: auto;
+    background-color: #142f431c;
+    color: #142F43;
+    border-radius: 5px;
+}
+.success{
+    padding: 5px;
+    width: 70%;
+    margin: auto;
+    background-color: #142f431c;
+    color: #f98212;
+    border-radius: 5px;
+    font-weight: bold;
+
+}
+.loginBtn a{
+    text-decoration: none;
+    color: #F98012;
+    font-weight: 500;
+    font-size: large;
+}
+.loginBtn a:hover{
+    border-bottom: 2px solid #F98012;
+    color: #142F43;
+}

@@ -1,0 +1,157 @@
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.rightInfo a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: large;
+    background-color: #F78924;
+    border-radius: 10px;
+}
+.rightInfo a:hover{
+    color: #142F43;
+
+    background-color: #F98012;
+    border-left: 5px solid #142F43;
+    border-bottom: 5px solid #142F43;
+    border-radius: 10px;
+    
+}
+.leftLogo h1{
+    font-weight: bold;
+    text-decoration: 5px underline #F78924;
+
+}
+
+.campaignPage{
+    
+    padding: 10px;
+    display: flex;
+}
+.campaignPage button{
+    width: 180px;
+    background-color: white;
+    border: none;
+    font-weight: 500;
+    border-bottom: 5px solid #F98012;
+    color: #212529;
+    /* border-radius: 10px; */
+}
+.campaignPage a{
+    text-decoration: none;
+    border-bottom: 5px solid #F98012;
+    color: #212529;
+    padding: 0px 2px;
+}
+.campaignPage a:hover{
+    background-color: #F98012;
+    border-bottom: 5px solid #142F43;
+    color: #142F43;
+    border-radius: 10px;
+}
+.campaignPage button:hover{
+    background-color: #F98012;
+    border-bottom: 5px solid #142F43;
+
+    border-radius: 10px;
+
+}
+.campaignPage button i{
+    
+    margin-left: 20px;
+    background-color: #212529;
+}
+.infoContainer{
+    margin-top: 30px;
+    width: 40%;
+}
+
+.campaignFormContainer{
+    /* background-color: #142F43; */
+    width: 60%;
+    display: none;
+}
+.campaignBox{
+    /* background-color: antiquewhite; */
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+input[type='text'], input[type='number'],
+input[type='email']{
+    width: 80%;
+    margin-top: 10px;
+    outline: none;
+    border: 2px solid #142F43;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+textarea{
+    width: 80%;
+
+    margin-top: 10px;
+    outline: none;
+    border: 2px solid #142F43;
+    height: 120px;
+    border-radius: 5px;
+}
+select{
+    height: 40px;
+    width: 80%;
+    border-radius: 5px;
+    border: 2px solid #142F43;
+}
+.modalBg{
+    background-color: #F2F2F2;
+    border-radius: 10px;
+}
+.fileContainer p{
+    color: rgba(255, 0, 0, 0.498);
+    font-weight: bold;
+}
+.fileContainer{
+    width: 80%;
+    margin: auto;
+    text-align: left;
+}
+input[type=file]{
+    
+}
+input[type=submit]{
+    border: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #F98012;
+}
+hr{
+    border: 2px solid #142F43!important;
+    border-radius: 10px;
+}
+@media only screen and (max-width: 700px) {
+    .campaignPage{
+        display: inline;
+        width: 100%;
+        
+    }
+    .infoContainer{
+        margin-top: 0px;
+
+        padding: 20px;
+        width: 100%;
+    }
+    .campaignFormContainer{
+        width: 100%;
+    }
+  }

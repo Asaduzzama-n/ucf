@@ -1,0 +1,162 @@
+header{
+    height: 80px;
+}
+body{
+    /* background-color: #FEE7D1!important; */
+    font-family: "Rubik", sans-serif;
+}
+*{
+    margin: 0px ;
+    color: #142F43;
+    font-family: 'Roboto', sans-serif;
+    
+
+}
+.demoContainer {
+    width: 100%;
+    margin: auto;
+}  
+.demoContainer img{
+    width: 100%;
+    
+}
+
+.successStories{
+    width: 100%;
+
+    display: grid!important;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 100px;
+}
+
+/* campaign stories section */
+.campaignStories{
+    width: 100%;
+
+    display: grid!important;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 100px;
+}
+/* card style sction */
+
+.customCard{
+    height: 500px;
+    width: 250px;
+    /* border: 2px solid #455A64; */
+    position: relative;
+    border-radius: 5px;
+    background-color: #EDEDED;
+    
+}
+.imgContainer{
+    width: 90%;
+    margin: auto;
+    
+}
+.imgContainer img{
+    width: 100%;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.description{
+    text-align: center;
+}
+
+.progressBar{
+    height: 7px;
+    width: 90%;
+    margin: auto;
+    background-color: #F98012;
+}
+.progressStatus{
+    width: 60%;
+    height: 7px;
+    margin-left: 90px;
+    background-color: white;
+}
+.helpBtn{
+    width: 60%;
+    margin: auto;
+    
+}
+.helpBtn button{
+    
+    padding: 3px 10px;
+    border-radius: 10px;
+    border: 2px solid #F98012;
+    font-size: large;
+    font-weight: 500;
+    position: absolute;
+    bottom: 10px;
+    color: #F98012;
+    /* border: none; */
+    /* background-color: white; */
+
+}
+.helpBtn button:hover{
+    background-color: #142F43;
+    
+}
+.helpBtn button i{
+    color: #F98012;
+}
+
+.seeAllBtn{
+text-align: center;
+}
+
+.seeAllBtn button{
+    width: 250px;
+    height: 40px;
+    /* padding: 5px 20px; */
+    border-radius: 10px;
+    border: 2px solid #F98012;
+    font-size: large;
+    font-weight: 500;
+    background-color: white;
+    
+}
+.seeAllBtn button:hover{
+    background-color: #142F43;
+    color: #F98012;
+    
+}
+
+/* Success stories part */
+
+/* card css */
+.cardBox{
+    width: 370px;
+    height: 380px;
+    background-color: #EEEEEE;
+    position: relative;
+    border-radius: 8px;
+}
+.cardImg img{
+    height: 225px;
+    width: 370px;
+    border-radius: 8px;
+}
+.textGroup{
+    /* margin-top: 20px; */
+    padding: 20px;
+    line-height: 40px;
+
+}
+.textGroup p{
+    font-size: large;
+    color: #142F43;
+}
+.textGroup a{
+    position: absolute;
+    bottom: 20px;
+    text-decoration: none;
+    color: #142F43;
+}
+.textGroup  a:hover{
+    background-color: #FFFF;
+    padding:0px 20px;
+    border-radius: 10px;
+    color: #F78924;
+}

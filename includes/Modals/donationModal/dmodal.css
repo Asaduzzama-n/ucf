@@ -1,0 +1,40 @@
+
+.modalBox{
+    /* background-color: antiquewhite; */
+    padding: 20px;
+}
+
+input[type='text'], input[type='number']{
+    width: 100%;
+    margin-top: 10px;
+    outline: none;
+    border: 2px solid #142F43;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+
+.modalBg{
+    background-color: #F2F2F2;
+    border-radius: 10px;
+}
+
+input[type=submit]{
+    border: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #F98012;
+}
+.pMethod1,.pMethod2{
+    margin-top: 20px;
+    /* border: 1px solid #142F43; */
+    padding: 5px;
+    border-radius: 5px;
+    height: 50px;
+}
+/* input[type=radio]{
+
+    padding: 10px;
+
+} */

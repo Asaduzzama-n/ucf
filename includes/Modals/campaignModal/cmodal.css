@@ -1,0 +1,42 @@
+
+.modalBox{
+    /* background-color: antiquewhite; */
+    padding: 20px;
+}
+input[type='text'], input[type='number'],
+input[type='email']{
+    width: 100%;
+    margin-top: 10px;
+    outline: none;
+    border: 2px solid #142F43;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+textarea{
+    width: 100%;
+    margin-top: 10px;
+    outline: none;
+    border: 2px solid #142F43;
+    height: 120px;
+    border-radius: 5px;
+}
+select{
+    height: 40px;
+    width: 100%;
+}
+.modalBg{
+    background-color: #F2F2F2;
+    border-radius: 10px;
+}
+small{
+    color: rgba(255, 0, 0, 0.498);
+    font-weight: bold;
+}
+input[type=submit]{
+    border: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #F98012;
+}
