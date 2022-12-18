@@ -144,11 +144,11 @@ function validate($data)
                         <div class="col">
                             <select class="selectCustomStyle" name="cDepartment" id="cDepartment" required>
                                 <option selected>Chose Your Department</option>
-                                <option value="CSE">CSE</option>
-                                <option value="BBA">BBA</option>
-                                <option value="EEE">EEE</option>
-                                <option value="CIVIL">CIVIL</option>
-                                <option value="MJ">MJ</option>
+                                <option value="1">CSE</option>
+                                <option value="2">BBA</option>
+                                <option value="3">EEE</option>
+                                <option value="4">CIVIL</option>
+                                <option value="5">MJ</option>
                             </select>
                         </div>
                     </div> -->
