@@ -2,50 +2,8 @@
     margin: 0px;
     padding: 0px;
 }
-.navigation{
-    display: flex;
-    justify-content: space-between;
-    height: 100px;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 30px;
-   
 
-}
-.rightInfo a{
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
 
-    font-size: large;
-    background-color: #F78924;
-    border-radius: 10px;
-}
-.rightInfo a:hover{
-    color: #142F43;
-
-    background-color: #F98012;
-    border-left: 5px solid #142F43;
-    border-bottom: 5px solid #142F43;
-    border-radius: 10px;
-    
-}
-
-.leftLogo a h1{
-    font-weight: 600;
-    /* font-size: xx-large; */
-}
-.leftLogo a {
-
-    text-decoration:5px underline #F78924;
-    /* text-decoration: none; */
-    color: #142F43!important;
-}
-.leftLogo a:hover{
-    color: #F78924!important;
-    text-decoration:5px underline #142F43;
-
-}
 .DonationContainer{
     display: flex;
 }
@@ -106,28 +64,35 @@ hr{
     border-radius: 5px;
     border: 2px solid #F98012;
 }
-form{
-    width: 100%;
-}
 .formContainer{
     padding: 10px;
-    width: 100%;
+    width: 70%;
+    margin: auto;
     background-color: white!important;
     border-radius: 10px;
     display: none;
 }
+form{
+    width: 100%;
+}
+
 
 .progressParent{
     width: 100%;
     height: 10px;
     background-color: #142f43a2;
-    border-radius: 20px;
+    /* border-radius: 20px; */
 }
 .progressChild{
-    width: 50%;
+    /* width: 50%; */
     height: 10px;
     background-color: #F98012;
-    border-radius: 20px;
+    /* border-radius: 20px; */
+}
+.userProfile img{
+    width: 100px;
+    height: 100px;
+    border-radius: 60px!important;
 }
 
 input[type=number],input[type=text]{
@@ -141,8 +106,11 @@ input[type=number],input[type=text]{
     padding: 10px;
 }
 input[type=radio]{
-    width: 25px;
+    width: 20px;
+    
 }
+
+
 #donateBtn{
     width: 60%;
     border: 2px solid #F98012;
@@ -165,3 +133,7 @@ input[type=radio]{
         width: 90%;
     }
   }
+
+
+  /* nav profile style */
+

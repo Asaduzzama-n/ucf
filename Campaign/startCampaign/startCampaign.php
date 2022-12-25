@@ -1,7 +1,8 @@
 <?php
 session_start();
 include '../../includes/db/dbConnection.php';
-$loggedIn = $_SESSION['loggedIn'];
+$loggedIn = $_GET['loggedIn'];
+
 $success = '';
 $error = '';
 // if($loggedIn){
@@ -16,14 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $cDescription = validate($_POST['cDescription']);
     $cPhone = validate($_POST['cPhone']);
     // $cDepartment = validate($_POST['cDepartment']);
-    $cID = validate($_POST['cID']);
+    $uID = validate($_POST['uID']);
 
-    if (empty(isset($_POST['pdf'])) and empty(isset($_POST['image'])) ) {
+    if (empty(isset($_POST['pdf'])) and empty(isset($_POST['image']))) {
         $error = 'Select file!';
     } else {
         $pdf = $_POST['pdf'];
         $img = $_POST['image'];
-
     }
 
 
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         echo "<script>alert('Photo is very big. Maximum photo uploading size is 5MB.');</script>";
     } else {
         $sql = "INSERT INTO campaign(user_id,camp_name,campaigner_email,campaigner_phn,camp_desc,target_amount,camp_img,camp_file) 
-        VALUES ('$cID','$cName','$cEmail','$cPhone','$cDescription','$tAmount','$photo_new_name','$file_new_name')";
+        VALUES ('$uID','$cName','$cEmail','$cPhone','$cDescription','$tAmount','$photo_new_name','$file_new_name')";
 
         $result = mysqli_query($conn, $sql);
         if ($result) {
@@ -75,40 +75,106 @@ function validate($data)
     <title>UCF</title>
     <link rel="stylesheet" href="../../includes/navBar/style.css">
     <link rel="stylesheet" href="./startCampaign.css">
+    <link rel="stylesheet" href="../../css/nav.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="../../js/script.js"></script>
     <script src="https://kit.fontawesome.com/744d788fd4.js" crossorigin="anonymous"></script>
 
 
 </head>
-<style>
-    body {
-        /* background-color: #FEE7D1; */
-    }
-</style>
+
 
 <body>
 
-    <header class="container">
-        <div class="navigation">
-            <div class="leftLogo">
-                <h1>UIUCF</h1>
+<header class="container">
+    <div class="navigation">
+      <div class="leftLogo">
+        <a href="../../index.php?loggedIn=true">
+          <h1>UIUCF</h1>
+        </a>
+      </div>
+      <div class="rightInfo">
+        <div class="profileContainer">
+          <button onclick="showNav();"><?php
+                                        // echo $_SESSION['userProfile'];
+                                        if ($_SESSION['userProfile'] == 'NULL') {
+                                        ?>
+                                          <img src="../../images/others/man.png" width="70px" alt="">
+                                        <?php } else { ?>
+                                          <img class="prStyle" src="<?php echo '../../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
+                                        <?php } ?></button>
+          <div id="nav" class="linkContainer ">
+            <div class="triangle-up">
             </div>
-            <div class="rightInfo">
-                <a href="#">View Profile</a>
-                <a href="#">Logout</a>
+            <div class="viewProfile d-flex align-items-center ">
+              <i class="fa-solid fa-user"></i>
+
+              <?php if ($loggedIn == 'true') { ?>
+                <a class="mx-3 " href="../../userProfile/profile.php?loggedIn=true">View Profile</a>
+              <?php } else { ?>
+                <a class="mx-3 " href="../../login.php">View Profile</a>
+              <?php } ?>
+
             </div>
+            <hr>
+            <div class="viewProfile d-flex align-items-center ">
+              <i class="fa-sharp fa-solid fa-layer-group"></i>
+
+              <?php if ($loggedIn == 'true') { ?>
+                <a class="mx-3 " href="../../userProfile/myCampaign.php?loggedIn=true">My campaign</a>
+              <?php } else { ?>
+                <a class="mx-3 " href="../../login.php">My campaign</a>
+              <?php } ?>
+
+              
+            </div>
+            <hr>
+            <div class="viewProfile d-flex align-items-center ">
+              <i class="fa-sharp fa-solid fa-circle-dollar-to-slot"></i>
+
+              <?php if ($loggedIn == 'true') { ?>
+                <a class="mx-3 " href="../../Campaign/startCampaign/startCampaign.php?loggedIn=true">Start campaign</a>
+              <?php } else { ?>
+                <a class="mx-3 " href="../../login.php">Start campaign</a>
+              <?php } ?>
+
+            </div>
+            <hr>
+            <div class="viewProfile d-flex align-items-center ">
+              <i class="fa-sharp fa-solid fa-right-from-bracket"></i>
+
+              <?php if ($loggedIn == 'true') { ?>
+                <a class="mx-3 " href="../../logout.php">Logout</a>
+              <?php } else { ?>
+                <a class="mx-3 " href="../../login.php">Login</a>
+              <?php } ?>
+
+              
+            </div>
+            <hr>
+          </div>
+
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
+
 
     <section class="container campaignPage">
         <div class="infoContainer">
             <h1>Share your story with others and let them help you!</h1>
+            <br>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, quibusdam!</p>
             <hr>
             <br>
-            <h2>Start Your Campaign <button onclick="showForm();">Now <img src="../../images/others/right-arrow.png" width="30px" alt=""></button> </h2>
-            <h2>Or</h2>
-            <h3>Go back to <a href="../../index.php">Home Page <img src="../../images/others/right-arrow.png" width="30px" alt=""> </a></h3>
+            <h3>Start Your Campaign <button onclick="displayForm();">Now <img src="../../images/others/right-arrow.png" width="30px" alt=""></button> </h3>
+            <br>
+            <h3>Or</h3>
+
+            <h3>Go back to <a href="../../index.php?loggedIn=true">Home Page <img src="../../images/others/right-arrow.png" width="30px" alt=""> </a></h3>
+            <br>
+            <br>
+            <br>
         </div>
         <div class="campaignFormContainer" id="campaignForm">
             <div class="campaignBox shadow">
@@ -154,7 +220,7 @@ function validate($data)
                     </div> -->
                     <div class="row">
                         <div class="col">
-                            <input type="text" id="cID" name="cID" placeholder="University ID" required>
+                            <input type="text" id="cID" name="uID" placeholder="University ID" required>
                         </div>
                     </div>
                     <hr>
@@ -174,8 +240,8 @@ function validate($data)
                                 </div>
 
                                 <div class="files">
-                                <input class="mt-2 " type="file" name="pdf" accept="application/pdf" required>
-                                <input class="mt-2 " type="file" name="image" accept="image/*" required>
+                                    <input class="mt-2 " type="file" name="pdf" accept="application/pdf" required>
+                                    <input class="mt-2 " type="file" name="image" accept="image/*" required>
                                 </div>
                             </div>
                         </div>
@@ -189,17 +255,19 @@ function validate($data)
                 </form>
 
             </div>
+
         </div>
+
     </section>
 
+    <hr>
+
+    <footer>
+
+        <?php include '../../includes/footer.php'; ?>
+    </footer>
 
 
-    <script>
-        const showForm = () => {
-            const from = document.getElementById('campaignForm');
-            from.style.display = 'block';
-        }
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

@@ -20,7 +20,12 @@ body{
     width: 100%;
     
 }
-
+.carouselContainer{
+    margin-top: 10px;
+    width: 100%!important;
+    height: 600px;
+    z-index: 0;
+}
 .successStories{
     width: 100%;
 
@@ -32,16 +37,15 @@ body{
 /* campaign stories section */
 .campaignStories{
     width: 100%;
-
     display: grid!important;
     grid-template-columns: repeat(3,1fr);
-    grid-gap: 100px;
+    grid-gap: 20px;
 }
 /* card style sction */
 
 .customCard{
-    height: 500px;
-    width: 250px;
+    height: 450px;
+    width: 230px;
     /* border: 2px solid #455A64; */
     position: relative;
     border-radius: 5px;
@@ -63,7 +67,7 @@ body{
     text-align: center;
 }
 
-.progressBar{
+/* .progressBar{
     height: 7px;
     width: 90%;
     margin: auto;
@@ -74,7 +78,7 @@ body{
     height: 7px;
     margin-left: 90px;
     background-color: white;
-}
+} */
 .helpBtn{
     width: 60%;
     margin: auto;
@@ -106,6 +110,7 @@ body{
 text-align: center;
 }
 
+
 .seeAllBtn button{
     width: 250px;
     height: 40px;
@@ -136,7 +141,7 @@ text-align: center;
 .cardImg img{
     height: 225px;
     width: 370px;
-    border-radius: 8px;
+    /* border-radius: 8px; */
 }
 .textGroup{
     /* margin-top: 20px; */
@@ -160,3 +165,25 @@ text-align: center;
     border-radius: 10px;
     color: #F78924;
 }
+
+/* nav profile style */
+
+@media only screen and (max-width: 600px) {
+    .successStories{
+
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 20px;
+    }
+    .carouselContainer{
+    
+        width: 100%!important;
+        height: 400px;
+    }
+    /* campaign stories section */
+    .campaignStories{
+
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 100px;
+    }
+  }
+

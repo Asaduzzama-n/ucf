@@ -10,7 +10,7 @@ body{
     margin-bottom: 30px;
 
 }
-.rightInfo a{
+/* .rightInfo a{
     text-decoration: none;
     color: white;
     padding: 10px 20px;
@@ -27,7 +27,7 @@ body{
     border-bottom: 5px solid #142F43;
     border-radius: 10px;
     
-}
+} */
 .leftLogo a h1{
     font-weight: 600;
     /* font-size: xx-large; */

@@ -102,12 +102,12 @@
                                 </select>
                             <?php } else { ?>
                                 <select class="selectCustomStyle" name="userDepartment" id="userDepartment">
-                                    <option selected value="0">Chose Your Department</option>
-                                    <option value="1">CSE</option>
-                                    <option value="2">BBA</option>
-                                    <option value="3">EEE</option>
-                                    <option value="4">CIVIL</option>
-                                    <option value="5">MJ</option>
+                                    <option selected value="Not Selected">Chose Your Department</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="BBA">BBA</option>
+                                    <option value="EEE">EEE</option>
+                                    <option value="CIVIL">CIVIL</option>
+                                    <option value="MJ">MJ</option>
                                 </select>
                             <?php } ?>
 
@@ -118,17 +118,17 @@
 
                             <?php if (isset($_GET['userDesignation'])) { ?>
                                 <select class="selectCustomStyle" name="userDesignation" id="userDesignation">
-                                    <option selected value="0">Select Your Designation</option>
+                                    <option selected value="Not Selected">Select Your Designation</option>
                                     <option value="<?php echo $_GET['userDesignation']; ?>">Student</option>
                                     <option value="<?php echo $_GET['userDesignation']; ?>">Faculty</option>
                                     <option value="<?php echo $_GET['userDesignation']; ?>">Staff</option>
                                 </select>
                             <?php } else { ?>
                                 <select class="selectCustomStyle" name="userDesignation" id="userDesignation">
-                                    <option selected>Select Your Designation</option>
-                                    <option value="1">Student</option>
-                                    <option value="2">Faculty</option>
-                                    <option value="3">Staff</option>
+                                    <option selected value="Not Selected">Select Your Designation</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Faculty">Faculty</option>
+                                    <option value="Staff">Staff</option>
                                 </select>
                             <?php } ?>
                         </div>

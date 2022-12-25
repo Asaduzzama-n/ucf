@@ -36,10 +36,11 @@ if (isset($_POST['uniId'])&& isset($_POST['password'])){
                 $_SESSION['phone'] = $row['u_phone'];
                 $_SESSION['uniId'] = $row['user_id'];
                 $_SESSION['userImage'] = $row['u_image'];
+                $_SESSION['userProfile'] = $row['u_profile'];
                 $_SESSION['userStatus'] = $row['u_status'];
                 $_SESSION['loggedIn'] = true;
 
-                header("Location: index.php");
+                header("Location: index.php?loggedIn=true");
 		        exit();
             } else {
                 header("Location: login.php?error=Incorrect University ID or password");

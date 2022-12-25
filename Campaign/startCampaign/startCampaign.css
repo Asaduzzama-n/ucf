@@ -1,34 +1,10 @@
 
-.navigation{
-    display: flex;
-    justify-content: space-between;
-    height: 100px;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 30px;
-}
-.rightInfo a{
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: large;
-    background-color: #F78924;
+hr{
+    border: 2px solid #142F43!important;
     border-radius: 10px;
 }
-.rightInfo a:hover{
-    color: #142F43;
 
-    background-color: #F98012;
-    border-left: 5px solid #142F43;
-    border-bottom: 5px solid #142F43;
-    border-radius: 10px;
-    
-}
-.leftLogo h1{
-    font-weight: bold;
-    text-decoration: 5px underline #F78924;
 
-}
 
 .campaignPage{
     

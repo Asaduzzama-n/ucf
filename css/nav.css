@@ -1,0 +1,112 @@
+.leftLogo a h1 {
+    font-weight: 600;
+
+  }
+
+  .leftLogo a {
+
+    text-decoration: 5px underline #F78924;
+    color: #142F43 !important;
+  }
+
+  .leftLogo a:hover {
+    text-decoration: 5px underline #142F43;
+    color: #F78924 !important;
+
+
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+
+  }
+
+  .rightInfo {
+    width: 100%;
+  }
+
+  .profileContainer {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+
+  }
+  .profileContainer img{
+    width: 55px;
+    height: 55px;
+    border-radius: 60%;
+
+  }
+
+
+  .prStyle{
+    border-radius: 60%;
+    padding: 1px;
+    border: 3px solid rgb(123, 198, 11)!important;
+  }
+
+
+  .profileContainer button {
+    /* padding: 10px; */
+    /* border: 2px solid #142F43; */
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: #FFFFFF !important;
+  }
+
+
+  #nav {
+    position: absolute;
+    right: 0px;
+    background-color: #B7BEC3;
+    padding: 10px;
+    border-radius: 6px;
+    width: 200px;
+    margin-top: 15px;
+    display: none;
+    z-index: 1;
+
+  }
+
+  hr {
+    border: 2px solid #142F43 !important;
+    border-radius: 10px;
+  }
+
+  .linkContainer {
+  }
+
+  .linkContainer a {
+
+    font-size: small !important;
+    text-decoration: none;
+    color: #142F43;
+
+
+
+  }
+
+  .linkContainer a:hover {
+
+    color: #F78924;
+  }
+
+  .triangle-up {
+    right: 8px;
+    top: -13px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 20px solid #B7BEC3;
+
+  }
