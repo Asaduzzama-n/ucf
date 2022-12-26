@@ -1,12 +1,23 @@
 <?php
+include '../includes/db/dbConnection.php';
 session_start();
 $uniId = $_SESSION['uniId'];
 $loggedIn = $_GET['loggedIn'];
+$userId = $_SESSION['userId'];
+// echo $userId;
 // echo $loggedIn;
 
-
-
-include '../includes/db/dbConnection.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $campaignId = $_POST['campId'];
+  
+  $sql3 = "UPDATE campaign SET camp_status=3 WHERE user_id = '$uniId' AND campaign_id = '$campaignId'";
+  $result3 = mysqli_query($conn, $sql3);
+  if ($result3) {
+    echo "<script>alert('Withdraw successful!')</script>";
+  } else {
+    echo "<script>alert('Please try again!')</script>";
+  }
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,7 +27,7 @@ include '../includes/db/dbConnection.php';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UCF</title>
   <!-- local css links -->
-<link rel="stylesheet" href="./myCampaign.css">
+  <link rel="stylesheet" href="./myCampaign.css">
   <link rel="stylesheet" href="../css/nav.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
   <!-- bootstrap and fontawesome link -->
@@ -41,10 +52,10 @@ include '../includes/db/dbConnection.php';
                                         // echo $_SESSION['userProfile'];
                                         if ($_SESSION['userProfile'] == 'NULL') {
                                         ?>
-                                          <img src="../images/others/man.png" width="70px" alt="">
-                                        <?php } else { ?>
-                                          <img class="prStyle" src="<?php echo '../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
-                                        <?php } ?></button>
+              <img src="../images/others/man.png" width="70px" alt="">
+            <?php } else { ?>
+              <img class="prStyle" src="<?php echo '../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
+            <?php } ?></button>
           <div id="nav" class="linkContainer ">
             <div class="triangle-up">
             </div>
@@ -68,7 +79,7 @@ include '../includes/db/dbConnection.php';
                 <a class="mx-3 " href="../login.php">My campaign</a>
               <?php } ?>
 
-              
+
             </div>
             <hr>
             <div class="viewProfile d-flex align-items-center ">
@@ -91,7 +102,7 @@ include '../includes/db/dbConnection.php';
                 <a class="mx-3 " href="../login.php">Login</a>
               <?php } ?>
 
-              
+
             </div>
             <hr>
           </div>
@@ -101,54 +112,133 @@ include '../includes/db/dbConnection.php';
     </div>
   </header>
 
+
+
+  <?php
+  $sql = "SELECT * FROM campaign WHERE user_id = '$uniId'";
+  $result = mysqli_query($conn, $sql);
+  ?>
   <section class="container">
-    <div class="campaignContainer">
-      <div class="row">
-        <div class="col imgContainer">
-          <img src="../images/others/campaign.png" alt="">
-        </div>
-      </div>
+    <?php
+    if (mysqli_num_rows($result) > 0) {
+      while ($row = $result->fetch_assoc()) {
+        $path = '../images/CampaignImages/';
+    ?>
+        <div class="campaignContainer mt-5">
+          <div class="campaignStatus">
+          <?php
+                if ($row['camp_status'] == 2) {
+                ?>
+                <p class="pendingP">Pending</p>
+                <?php } else if($row['camp_status'] == 1) {
+                ?>
+                <p class="activeP">Active</p>
+                <?php } else if($row['camp_status'] == 0){
+                ?>
+                <p class="">Canceled</p>
+                <?php } else {
+                ?>
+                <p class="finishP">Finished</p>
+                <?php }
+                ?>
+          </div>
+          <div class="row">
+            <div class="col imgContainer">
+              <img src="<?php echo $path . $row['camp_img'] ?>" alt="">
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col mt-5">
-          <h4>Campaign Name</h4>
-        </div>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Neque libero obcaecati dignissimos odit aut amet dolor eveniet soluta 
-            id minima deleniti ducimus, non modi fuga maiores, ex molestiae, nulla 
-            iste. Numquam ipsam amet architecto minima cumque, mollitia et ad
-             accusamus non placeat. Magni, consequatur. Tempore vero aliquam modi 
-             nulla temporibus?</p>
-        </div>
-      </div>
+          <div class="row my-5">
+            <div class="col ">
+              <h4><?php echo $row['camp_name'] ?></h4>
+            </div>
+          </div>
+          <hr>
+          <div class="row mt-4">
+            <div class="col">
+              <p><?php echo $row['camp_desc'] ?></p>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col">
-          <h5>Raised of goal</h5>
-          <div class="progressBar ">
-            <div class="childBar">
+          <div class="row mt-3">
+            <div class="col">
+              <div class="d-flex">
+                <h5 id="progressAmount">
+                  <?php
+                  $cID = $row['campaign_id'];
+                  $sql2 = "SELECT SUM(amount) FROM donation WHERE campaign_id = '$cID';";
+                  $result2 = $conn->query($sql2);
+                  while ($row2 = mysqli_fetch_array($result2)) {
+                    echo $row2['SUM(amount)'];
+                  }
+                  ?>
+                </h5>
+                <h5 class="px-2">Raised of </h5>
+                <h5 id="tAmount"><?php echo $row['target_amount'] ?></h5>
+                <h5 class="px-2"> goal</h5>
+              </div>
+              <div class="progressBar mt-4">
+                <div id="progress" class="childBar">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col text-center ">
+              <form action="" method="post">
+                <?php
+                if ($row['camp_status'] != 3) {
+                ?>
+                <input class="d-none" type="text" name="campId" value="<?php echo $row['campaign_id']?>">
+                  <button class="withdrawBtn my-3">Withdraw</button>
+                <?php } else {
+                ?>
+                  <button class="withdrawnBtn my-3 " disabled>Withdrawn</button>
+                <?php }
+                ?>
+
+              </form>
             </div>
           </div>
         </div>
-      </div>
-              
-      <div class="row mt-5">
-        <div class="col text-center ">
-          <button class="withdrawBtn my-3">Withdraw</button>
-        </div>
-      </div>
-    </div>
+      <?php } ?>
+
+
+    <?php } else {
+    ?>
+      <h1>You Don't have any campaign running</h1>
+
+    <?php }
+    ?>
 
   </section>
 
 
+  <?php
+  function updateCampaignStatus()
+  {
+    echo 'Called';
+  }
+  ?>
+
+
+
   <footer><?php include '../includes/footer.php' ?></footer>
 
-
+  <script>
+    const tAmount = parseInt(document.getElementById('tAmount').innerHTML);
+    const progressAmount = parseInt(document.getElementById('progressAmount').innerHTML);
+    console.log(progressAmount);
+    if (progressAmount >= tAmount) {
+      document.getElementById('progress').style.width = '100%';
+      document.getElementById('progressAmount').innerHTML = tAmount;
+    } else {
+      const progressPercentage = (progressAmount / tAmount) * 100;
+      console.log(progressPercentage);
+      document.getElementById('progress').style.width = progressPercentage + "%";
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

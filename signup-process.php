@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                 header("Location: signup.php?error=University ID already Exist&$user_data");
                 exit();
             } else {
-                $sql2 = "INSERT INTO user(user_id,password,f_name,l_name,u_department,u_phone,u_email,u_image,u_designation) VALUES ('$uniId','$password','$fname','$lName','$userDepartment','$phone','$email','$photo_new_name','$userDesignation')";
+                $sql2 = "INSERT INTO user(user_id,password,f_name,l_name,u_department,u_phone,u_email,u_image,u_designation) VALUES ('$uniId','$password','$fName','$lName','$userDepartment','$phone','$email','$photo_new_name','$userDesignation')";
 
                 $result2 = mysqli_query($conn, $sql2);
                 if ($result2) {

@@ -194,8 +194,8 @@ $loggedIn = $_GET['loggedIn'];
     $result = $conn->query($sql);
     ?>
 
-    <section class="container">
-      <div class=" campaignStories mt-5">
+    <section class="container ">
+      <div class=" campaignStories my-5">
 
         <?php
         $count = 0;
@@ -253,18 +253,18 @@ $loggedIn = $_GET['loggedIn'];
 
 
     <!-- success story part begins from here -->
-    <section class="container mt-5">
+    <section class="container my-5">
 
       <?php
       $conn = new mysqli('localhost', 'root', '', 'fund_future');
       $sql2 = "SELECT * FROM campaign WHERE camp_status=3";
       $result2 = $conn->query($sql2);
       ?>
-      <div class="featuredTopic">
+      <div class="featuredTopic my-5">
         <p>Featured Topics</p>
         <h1>Success Stories</h1>
       </div>
-      <div class="successStories ">
+      <div class="successStories my-5">
 
         <!-- <div class="featuredTopics"> -->
         <!-- Custom Card starts here -->
