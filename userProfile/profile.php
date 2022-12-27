@@ -270,6 +270,7 @@ include '../includes/db/dbConnection.php';
         </div>
         <button id="updateProfile">Update Profile</button>
       </div>
+      
       <div class="col-sm-8 rightContainer">
         <div class=" mt-5 d-flex justify-content-center">
           <h2>All Donation</h2>

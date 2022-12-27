@@ -128,7 +128,7 @@ $loggedIn = $_GET['loggedIn'];
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active " data-bs-interval="10000">
-            <img src="./images/carousel/1902_i003_009_s.jpg" height="600px" width="800px" class="d-block w-100 " alt="...">
+            <img src="./images/others/UIU-Banner-New-scaled.jpg" height="600px" width="800px" class="d-block w-100 " alt="...">
             <div class="carousel-caption d-none d-md-block">
 
               <h4><?php if ($loggedIn == 'true') { ?>
@@ -141,7 +141,7 @@ $loggedIn = $_GET['loggedIn'];
             </div>
           </div>
           <div class="carousel-item customStyle" data-bs-interval="2000">
-            <img src="./images//carousel/shutterstock_1356273047-2048x1365.jpg" height="600px" width="800px" class="d-block w-100" alt="...">
+            <img src="./images/carousel/UIU-Campus-2.jpg" height="600px" width="800px" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block customLink">
               <h4><?php if ($loggedIn == 'true') { ?>
                   <a class="mx-3 " href="./Campaign/startCampaign/startCampaign.php?loggedIn=true">Start Your Own Campaign</a>
@@ -153,7 +153,7 @@ $loggedIn = $_GET['loggedIn'];
             </div>
           </div>
           <div class="carousel-item customStyle">
-            <img src="./images//carousel/shutterstock_1356273047-2048x1365.jpg" height="600px" width="800px" class="d-block w-100" alt="...">
+            <img src="./images/carousel/UIU-Campus0-1024x767.jpg" height="600px" width="800px" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h4><?php if ($loggedIn == 'true') { ?>
                   <a class="mx-3 " href="./Campaign/startCampaign/startCampaign.php?loggedIn=true">Start Your Own Campaign</a>

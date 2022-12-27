@@ -1,0 +1,63 @@
+.tableContainer{
+    width: 100%;
+    background-color: #EDEDED;
+    
+    border-radius: 5px;
+}
+.downloadDesign{
+    text-decoration: none;
+    color: black;
+    /* background-color: #142f4345; */
+    background-color: white;
+    padding:4px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+
+
+    
+}
+
+.downloadDesign:hover{
+    color: #F98012;
+    background-color: white;
+}
+.pendingStatus{
+    /* width: 100%; */
+    text-align: center;
+    background-color: #f98212a8!important;
+    padding:2px 6px;
+    border-radius: 10px;
+    margin: 0px;
+    color: white;
+    font-weight: bold;
+}
+.activeStatus{
+    /* width: 100%; */
+    text-align: center;
+    background-color: rgba(0, 128, 0, 0.656)!important;
+    padding:2px 6px;
+    border-radius: 10px;
+    margin: 0px;
+    color: white;
+    font-weight: bold;
+}
+.cancelStatus{
+    /* width: 100%; */
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.67)!important;
+    padding:2px 6px;
+    border-radius: 10px;
+    margin: 0px;
+    color: white;
+    font-weight: bold;
+}
+.finishStatus{
+    /* width: 100%; */
+    text-align: center;
+    background-color: rgba(0, 0, 255, 0.508)!important;
+    padding:2px 6px;
+    border-radius: 10px;
+    margin: 0px;
+    color: white;
+    font-weight: bold;
+}
