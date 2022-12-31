@@ -57,11 +57,12 @@ if (isset($_POST['submit'])) {
 
 </head>
 
+
 <body>
 
-    <header class="container">
+    <header class="">
         <div class="navigation">
-            <div class="leftLogo">
+            <div class="leftLogo mx-5">
                 <a href="../index.php?loggedIn=true">
                     <h1>UIUCF</h1>
                 </a>
@@ -150,9 +151,9 @@ if (isset($_POST['submit'])) {
 
     ?>
 
-    <section class="container">
-        <div class="DonationContainer">
-            <div class="leftContainer">
+    <section class="container my-4">
+        <div class="DonationContainer ">
+            <div class="leftContainer my-4">
                 <div class="imgContainer">
                     <img src="<?php echo '../images/CampaignImages/' . $row['camp_img']; ?>" alt="">
                 </div>
@@ -195,7 +196,7 @@ if (isset($_POST['submit'])) {
 
 
 
-            <div class="rightContainer">
+            <div class="rightContainer my-4 ">
                 <div class="progressBar mt-5">
 
 
@@ -266,7 +267,7 @@ if (isset($_POST['submit'])) {
                             </div>
                         </form>
                     </div>
-                    <div class="donateBtn">
+                    <div class="donateBtn ">
                         <button onclick="showForm();" id="donateNowBtn">Donate Now</button>
                     </div>
                 </div>
@@ -277,8 +278,8 @@ if (isset($_POST['submit'])) {
 
 
 
-    <footer class="container mt-5">
-        <hr>
+    <footer class=" mt-5">
+        
         <?php include '../includes/footer.php' ?>
     </footer>
 

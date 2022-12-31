@@ -26,87 +26,90 @@ $loggedIn = $_GET['loggedIn'];
 
 <body>
 
-  <header class="container">
-    <div class="navigation">
-      <div class="leftLogo">
-        <?php if ($loggedIn == 'true') { ?>
-          <a href="../../index.php?loggedIn=true">
-            <h1>UIUCF</h1>
-          </a>
-        <?php } else { ?>
-          <a href="../../index.php?loggedIn=false">
-            <h1>UIUCF</h1>
-          </a>
-        <?php } ?>
-      </div>
-      <div class="rightInfo">
-        <div class="profileContainer">
-          <button onclick="showNav();"><?php
-                                        // echo $_SESSION['userProfile'];
-                                        if ($loggedIn == 'false') {
-                                        ?>
-                                          <img src="../../images/others/man.png" width="70px" alt="">
-                                        <?php } else { ?>
-                                          <img class="prStyle" src="<?php echo '../../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
-                                        <?php } ?></button>
-          <div id="nav" class="linkContainer ">
-            <div class="triangle-up">
-            </div>
-            <div class="viewProfile d-flex align-items-center ">
-              <i class="fa-solid fa-user"></i>
-
-              <?php if ($loggedIn == 'true') { ?>
-                <a class="mx-3 " href="../../userProfile/profile.php?loggedIn=true">View Profile</a>
+  <header class="">
+    <nav>
+      <div class="navigation">
+        <div class="leftLogo mx-5">
+          <?php if ($loggedIn == 'true') { ?>
+            <a href="../../index.php?loggedIn=true">
+              <h1>UIUCF</h1>
+            </a>
+          <?php } else { ?>
+            <a href="../../index.php?loggedIn=false">
+              <h1>UIUCF</h1>
+            </a>
+          <?php } ?>
+        </div>
+        <div class="rightInfo">
+          <div class="profileContainer">
+            <button onclick="showNav();"><?php
+                                          // echo $_SESSION['userProfile'];
+                                          if ($loggedIn == 'false') {
+                                          ?>
+                <img src="../../images/others/man.png" width="70px" alt="">
               <?php } else { ?>
-                <a class="mx-3 " href="../../login.php">View Profile</a>
-              <?php } ?>
+                <img class="prStyle" src="<?php echo '../../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
+              <?php } ?></button>
+            <div id="nav" class="linkContainer ">
+              <div class="triangle-up">
+              </div>
+              <div class="viewProfile d-flex align-items-center ">
+                <i class="fa-solid fa-user"></i>
 
+                <?php if ($loggedIn == 'true') { ?>
+                  <a class="mx-3 " href="../../userProfile/profile.php?loggedIn=true">View Profile</a>
+                <?php } else { ?>
+                  <a class="mx-3 " href="../../login.php">View Profile</a>
+                <?php } ?>
+
+              </div>
+              <hr>
+              <div class="viewProfile d-flex align-items-center ">
+                <i class="fa-sharp fa-solid fa-layer-group"></i>
+
+                <?php if ($loggedIn == 'true') { ?>
+                  <a class="mx-3 " href="../../userProfile/myCampaign.php?loggedIn=true">My campaign</a>
+                <?php } else { ?>
+                  <a class="mx-3 " href="../../login.php">My campaign</a>
+                <?php } ?>
+
+
+              </div>
+              <hr>
+              <div class="viewProfile d-flex align-items-center ">
+                <i class="fa-sharp fa-solid fa-circle-dollar-to-slot"></i>
+
+                <?php if ($loggedIn == 'true') { ?>
+                  <a class="mx-3 " href="../../Campaign/startCampaign/startCampaign.php?loggedIn=true">Start campaign</a>
+                <?php } else { ?>
+                  <a class="mx-3 " href="../../login.php">Start campaign</a>
+                <?php } ?>
+
+              </div>
+              <hr>
+              <div class="viewProfile d-flex align-items-center ">
+                <i class="fa-sharp fa-solid fa-right-from-bracket"></i>
+
+                <?php if ($loggedIn == 'true') { ?>
+                  <a class="mx-3 " href="../../logout.php">Logout</a>
+                <?php } else { ?>
+                  <a class="mx-3 " href="../../login.php">Login</a>
+                <?php } ?>
+
+
+              </div>
+              <hr>
             </div>
-            <hr>
-            <div class="viewProfile d-flex align-items-center ">
-              <i class="fa-sharp fa-solid fa-layer-group"></i>
 
-              <?php if ($loggedIn == 'true') { ?>
-                <a class="mx-3 " href="../../userProfile/myCampaign.php?loggedIn=true">My campaign</a>
-              <?php } else { ?>
-                <a class="mx-3 " href="../../login.php">My campaign</a>
-              <?php } ?>
-
-
-            </div>
-            <hr>
-            <div class="viewProfile d-flex align-items-center ">
-              <i class="fa-sharp fa-solid fa-circle-dollar-to-slot"></i>
-
-              <?php if ($loggedIn == 'true') { ?>
-                <a class="mx-3 " href="../../Campaign/startCampaign/startCampaign.php?loggedIn=true">Start campaign</a>
-              <?php } else { ?>
-                <a class="mx-3 " href="../../login.php">Start campaign</a>
-              <?php } ?>
-
-            </div>
-            <hr>
-            <div class="viewProfile d-flex align-items-center ">
-              <i class="fa-sharp fa-solid fa-right-from-bracket"></i>
-
-              <?php if ($loggedIn == 'true') { ?>
-                <a class="mx-3 " href="../../logout.php">Logout</a>
-              <?php } else { ?>
-                <a class="mx-3 " href="../../login.php">Login</a>
-              <?php } ?>
-
-
-            </div>
-            <hr>
           </div>
-
         </div>
       </div>
-    </div>
+    </nav>
   </header>
+  <br>
 
-  <section class="container">
-    <div class="row">
+  <section class="container my-5">
+    <div class="row my-5">
       <div class="col-md-4 mt-2">
         <div class="d-flex">
           <img src="../../images/others/quality.png" width="35px" alt="">
@@ -129,8 +132,8 @@ $loggedIn = $_GET['loggedIn'];
         <p>You’re covered by the UIUCF Giving Guarantee—our money-back donor protection guarantee.</p>
       </div>
     </div>
-
-    <div class="startFund mt-5">
+    <br>
+    <div class="startFund my-5">
       <h1>Share your story and start your own fundraising <br> journey with<span style="color:#F78924; font-style:italic; font-weight:bold;"> UIUCF!</span></h1>
       <br>
       <?php if ($loggedIn == 'true') { ?>
@@ -142,13 +145,13 @@ $loggedIn = $_GET['loggedIn'];
     </div>
     <br>
     <br>
-    <hr>
+    <!-- <hr> -->
   </section>
 
 
   <?php
   $conn = new mysqli('localhost', 'root', '', 'fund_future');
-  $sql = "SELECT * FROM campaign";
+  $sql = "SELECT * FROM campaign WHERE camp_status = 1";
   $result = $conn->query($sql);
   ?>
 
@@ -191,8 +194,8 @@ $loggedIn = $_GET['loggedIn'];
     </div>
   </section>
 
-  <footer class="container mt-5">
-    <hr>
+  <footer class=" mt-5">
+
     <?php include '../../includes/footer.php' ?>
   </footer>
 

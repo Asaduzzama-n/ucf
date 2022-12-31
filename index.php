@@ -32,9 +32,9 @@ $loggedIn = $_GET['loggedIn'];
 
 
 <body>
-  <header class="container">
+  <header class="">
     <div class="navigation">
-      <div class="leftLogo">
+      <div class="leftLogo mx-5">
         <?php if ($loggedIn == 'true') { ?>
           <a href="./index.php?loggedIn=true">
             <h1>UIUCF</h1>
@@ -190,7 +190,7 @@ $loggedIn = $_GET['loggedIn'];
     <!-- campaign story part begins from here -->
     <?php
     $conn = new mysqli('localhost', 'root', '', 'fund_future');
-    $sql = "SELECT * FROM campaign";
+    $sql = "SELECT * FROM campaign WHERE camp_status = 1 ";
     $result = $conn->query($sql);
     ?>
 

@@ -19,7 +19,7 @@
         <div class="demoContainer mt-5">
             <h3>What to Expect</h3>
             <h1>Fundraising on <span style="color:#F98012; font-weight:bold; font-style:italic">UIUCF</span> <br> takes just a few minutes</h1>
-            <img class="my-5" src="./images/others/Group 4.png" alt="">
+            <img class="my-5 shadow-none" src="./images/others/Group 8.png" alt="">
         </div>
     </section>
 

@@ -96,9 +96,9 @@ include '../includes/db/dbConnection.php';
 </head>
 
 <body>
-  <header class="container">
+  <header class="">
     <div class="navigation">
-      <div class="leftLogo">
+      <div class="leftLogo mx-5">
         <a href="../index.php?loggedIn=true">
           <h1>UIUCF</h1>
         </a>

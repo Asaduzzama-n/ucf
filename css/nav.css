@@ -1,3 +1,4 @@
+
 .leftLogo a h1 {
     font-weight: 600;
 
@@ -19,27 +20,31 @@
   .navigation {
     display: flex;
     justify-content: space-between;
-    height: 60px;
+    height: 80px;
     width: 100%;
     align-items: center;
     margin-bottom: 30px;
     position: relative;
+    background-color: #dee7ef79;
 
   }
 
   .rightInfo {
     width: 100%;
   }
+  .viewProfile i{
+    color: #132c3f;
+  }
 
   .profileContainer {
     position: absolute;
     top: 10px;
-    right: 0px;
+    right: 45px;
 
   }
   .profileContainer img{
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 60%;
 
   }
@@ -47,10 +52,11 @@
 
   .prStyle{
     border-radius: 60%;
-    padding: 1px;
-    border: 3px solid rgb(123, 198, 11)!important;
+    /* padding: 1px; */
+    color: #4d7ea434;
+    border: 3px solid rgb(104, 172, 2)!important;
   }
-
+  
 
   .profileContainer button {
     /* padding: 10px; */
@@ -59,20 +65,21 @@
     height: 50px;
     border: none;
     border-radius: 50%;
-    background-color: #FFFFFF !important;
+    background-color: #dee7ef79 !important;
   }
 
 
   #nav {
     position: absolute;
-    right: 0px;
-    background-color: #B7BEC3;
-    padding: 10px;
-    border-radius: 6px;
-    width: 200px;
-    margin-top: 15px;
+    right: -33px;
+    background-color: #dee7ef79;
+    padding: 30px;
+    border-radius: 5px;
+    width: 230px;
+    margin-top: 30px;
     display: none;
     z-index: 1;
+    
 
   }
 
@@ -86,7 +93,7 @@
 
   .linkContainer a {
 
-    font-size: small !important;
+    font-size: medium !important;
     text-decoration: none;
     color: #142F43;
 
@@ -97,16 +104,17 @@
   .linkContainer a:hover {
 
     color: #F78924;
+    /* font-weight: bold; */
   }
 
   .triangle-up {
-    right: 8px;
-    top: -13px;
+    right: 38px;
+    top: -14px;
     position: absolute;
     width: 0;
     height: 0;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-bottom: 20px solid #B7BEC3;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 14px solid #dee7ef79;
 
   }

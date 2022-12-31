@@ -14,7 +14,7 @@ $loggedIn = $_GET['loggedIn'];
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UCF</title>
-  <link rel="stylesheet" href="./fundriser.css">
+  <link rel="stylesheet" href="./success.css">
   <link rel="stylesheet" href="../../css/nav.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <script src="../../js/script.js"></script>
@@ -104,9 +104,9 @@ $loggedIn = $_GET['loggedIn'];
       </div>
     </div>
   </header>
-
-  <section class="container">
-    <div class="row">
+<br>
+  <section class="container my-5">
+    <div class="row my-5">
       <div class="col-md-4 mt-2">
         <div class="d-flex">
           <img src="../../images/others/quality.png" width="35px" alt="">
@@ -129,6 +129,7 @@ $loggedIn = $_GET['loggedIn'];
         <p>You’re covered by the UIUCF Giving Guarantee—our money-back donor protection guarantee.</p>
       </div>
     </div>
+    <br>
 
     <div class="startFund mt-5">
       <h1>Share your story and start your own fundraising <br> journey with<span style="color:#F78924; font-style:italic; font-weight:bold;"> UIUCF!</span></h1>
@@ -140,15 +141,15 @@ $loggedIn = $_GET['loggedIn'];
       <?php } ?>
 
     </div>
-    <br>
-    <br>
-    <hr>
-  </section>
 
+
+  </section>
+<br>
 
   <?php
   $conn = new mysqli('localhost', 'root', '', 'fund_future');
   $sql = "SELECT * FROM campaign WHERE camp_status = 3";
+
   $result = $conn->query($sql);
   ?>
 
@@ -166,16 +167,24 @@ $loggedIn = $_GET['loggedIn'];
               <img src="<?php echo '../../images/CampaignImages/' . $row['camp_img']; ?>" alt="">
             </div>
             <div class="textGroup mt-3">
+              <h3>Campaigner ID: <?php echo $row['user_id'] ?></h3>
+              <hr>
               <h4><?php echo $row['camp_name'] ?></h4>
               <p><?php echo $row['camp_desc'] ?></p>
-              <p>$ <?php echo $row['target_amount'] ?></p>
+              <div class="d-flex">
+              <strong>$ <?php
+                  $cID = $row['campaign_id'];
+                  $sql2 = "SELECT SUM(amount) FROM donation WHERE campaign_id = '$cID';";
+                  $result2 = $conn->query($sql2);
+                  while ($row2 = mysqli_fetch_array($result2)) {
+                    echo $row2['SUM(amount)'];
+                  }
+                  ?>
+                </strong>
+                <strong class="mx-2">raised of </strong>
+              <strong>$ <?php echo $row['target_amount'] ?> goal</strong>
 
-
-              <?php if ($loggedIn == 'true') { ?>
-                <a href="../../Donation/donation.php?cID=<?php echo $row['campaign_id'] ?>&tAmount=<?php echo $row['target_amount'] ?>&loggedIn=true">View More<img src="../../images/others/right-arrow (1).png" width="18px" alt=""></a>
-              <?php } else { ?>
-                <a href="../../login.php">View More <img src="./images/others/right-arrow.png" width="20px" alt=""></a>
-              <?php } ?>
+              </div>
 
             </div>
           </div>

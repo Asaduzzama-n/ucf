@@ -19,7 +19,7 @@ if (isset($_POST['uniId'])&& isset($_POST['password'])){
         $password = md5($password);
         $password = substr($password,0,-2) ;
 
-        $sql = "SELECT * FROM `user` WHERE user_id = '$uniId' AND password = '$password';";
+        $sql = "SELECT * FROM `user` WHERE user_id = '$uniId' AND password = '$password' AND u_status = 1 ;";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) === 1) {

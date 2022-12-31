@@ -13,13 +13,15 @@
 
 <style>
     .footerContainer{
+        width: 100%;
     background-color: white;
     padding: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 300px;
-    
+    background-color: #EFF4F7;
+   color: #142F43;
 }
 .footerLogo{
     text-align: start;
@@ -31,7 +33,7 @@
 }
 .footerLogo h1{
     color: #F98012!important;
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .about{
@@ -75,7 +77,7 @@
     text-decoration: none;
     font-size: large;
     margin: 0%;
-    color: #455A64;
+    color: #142F43;
     font-weight: 500;
 
     
@@ -87,7 +89,7 @@
     text-decoration: none;
     font-size: large;
     margin: 0%;
-    color: #455A64;
+    color: #142F43;
     font-weight: 500;
     
 }
@@ -121,9 +123,9 @@
             <div class="follow">
             <h2>Follow Us</h2>
                 <ul>
-                     <li><i class="fa-brands fa-facebook fa-xl"></i><a href="#">Facebook</a></li>
-                    <li><i class="fa-brands fa-instagram fa-xl"></i><a href="#">Instagram</a></li>
-                    <li><i class="fa-brands fa-twitter fa-xl"></i><a href="#">Twitter</a></li>
+                     <li><i class="fa-brands fa-facebook fa-xl mx-2"></i><a href="#">Facebook</a></li>
+                    <li><i class="fa-brands fa-instagram fa-xl mx-2"></i><a href="#">Instagram</a></li>
+                    <li><i class="fa-brands fa-twitter fa-xl mx-2"></i><a href="#">Twitter</a></li>
                 </ul>
             </div>
         </div>
