@@ -9,7 +9,7 @@ $userId = $_SESSION['userId'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $campaignId = $_POST['campId'];
-  
+
   $sql3 = "UPDATE campaign SET camp_status=3 WHERE user_id = '$uniId' AND campaign_id = '$campaignId'";
   $result3 = mysqli_query($conn, $sql3);
   if ($result3) {
@@ -126,21 +126,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ?>
         <div class="campaignContainer mt-5">
           <div class="campaignStatus">
-          <?php
-                if ($row['camp_status'] == 2) {
-                ?>
-                <p class="pendingP">Pending</p>
-                <?php } else if($row['camp_status'] == 1) {
-                ?>
-                <p class="activeP">Active</p>
-                <?php } else if($row['camp_status'] == 0){
-                ?>
-                <p class="">Canceled</p>
-                <?php } else {
-                ?>
-                <p class="finishP">Finished</p>
-                <?php }
-                ?>
+            <?php
+            if ($row['camp_status'] == 2) {
+            ?>
+              <p class="pendingP">Pending</p>
+            <?php } else if ($row['camp_status'] == 1) {
+            ?>
+              <p class="activeP">Active</p>
+            <?php } else if ($row['camp_status'] == 0) {
+            ?>
+              <p class="">Canceled</p>
+            <?php } else {
+            ?>
+              <p class="finishP">Finished</p>
+            <?php }
+            ?>
           </div>
           <div class="row">
             <div class="col imgContainer">
@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div class="row mt-3 ">
             <div class="col">
               <div class="d-flex">
                 <h5 id="progressAmount">
@@ -168,8 +168,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   $cID = $row['campaign_id'];
                   $sql2 = "SELECT SUM(amount) FROM donation WHERE campaign_id = '$cID';";
                   $result2 = $conn->query($sql2);
-                  while ($row2 = mysqli_fetch_array($result2)) {
-                    echo $row2['SUM(amount)'];
+                  if (mysqli_num_rows($result2) === 1) {
+                    while ($row2 = mysqli_fetch_array($result2)) {
+                      if ($row2['SUM(amount)'] != NULL) {
+                        echo $row2['SUM(amount)'];
+                      } else {
+                        echo 0;
+                      }
+                    }
                   }
                   ?>
                 </h5>
@@ -182,6 +188,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
               </div>
             </div>
+
+            <p id="percentage"></p>
+
           </div>
 
           <div class="row mt-5">
@@ -190,7 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php
                 if ($row['camp_status'] != 3) {
                 ?>
-                <input class="d-none" type="text" name="campId" value="<?php echo $row['campaign_id']?>">
+                  <input class="d-none" type="text" name="campId" value="<?php echo $row['campaign_id'] ?>">
                   <button class="withdrawBtn my-3">Withdraw</button>
                 <?php } else {
                 ?>
@@ -224,19 +233,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-  <footer><?php include '../includes/footer.php' ?></footer>
+  <footer class="footers"><?php include '../includes/footer.php' ?></footer>
 
   <script>
     const tAmount = parseInt(document.getElementById('tAmount').innerHTML);
     const progressAmount = parseInt(document.getElementById('progressAmount').innerHTML);
     console.log(progressAmount);
-    if (progressAmount >= tAmount) {
-      document.getElementById('progress').style.width = '100%';
-      document.getElementById('progressAmount').innerHTML = tAmount;
+    if (progressAmount == 0) {
+      document.getElementById('progress').style.width = '0%';
+
     } else {
-      const progressPercentage = (progressAmount / tAmount) * 100;
-      console.log(progressPercentage);
-      document.getElementById('progress').style.width = progressPercentage + "%";
+
+      if (progressAmount >= tAmount) {
+        document.getElementById('progress').style.width = '100%';
+        document.getElementById('progressAmount').innerHTML = tAmount;
+
+
+      } else {
+        const progressPercentage = (progressAmount / tAmount) * 100;
+        console.log(progressPercentage);
+        document.getElementById('progress').style.width = progressPercentage + "%";
+
+
+      }
+
     }
   </script>
 

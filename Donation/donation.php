@@ -70,13 +70,13 @@ if (isset($_POST['submit'])) {
             <div class="rightInfo">
                 <div class="profileContainer">
                     <button onclick="showNav();"><?php
-                                        // echo $_SESSION['userProfile'];
-                                        if ($_SESSION['userProfile'] == 'NULL') {
-                                        ?>
-                                          <img src="../images/others/man.png" width="70px" alt="">
-                                        <?php } else { ?>
-                                          <img class="prStyle" src="<?php echo '../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
-                                        <?php } ?></button>
+                                                    // echo $_SESSION['userProfile'];
+                                                    if ($_SESSION['userProfile'] == 'NULL') {
+                                                    ?>
+                            <img src="../images/others/man.png" width="70px" alt="">
+                        <?php } else { ?>
+                            <img class="prStyle" src="<?php echo '../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
+                        <?php } ?></button>
                     <div id="nav" class="linkContainer ">
                         <div class="triangle-up">
                         </div>
@@ -172,7 +172,15 @@ if (isset($_POST['submit'])) {
                     <hr>
 
                     <div class="mt-4 d-flex justify-content-center userProfile">
-                        <img src="<?php echo "../images/userImages/" . $row['u_image']; ?>" width="60px" alt="">
+                        <?php
+                        if ($_SESSION['userProfile'] == 'NULL') {
+                        ?>
+                            <img src="../images/others/man.png" width="70px" alt="">
+                        <?php } else { ?>
+                            <img src="<?php echo '../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="60px" alt="">
+                        <?php } ?></button>
+
+                        
                     </div>
                     <div class="organizerInfo mt-4">
 
@@ -204,8 +212,14 @@ if (isset($_POST['submit'])) {
                         <h6 id="progressAmount"><?php
                                                 $sql2 = "SELECT SUM(amount) FROM donation WHERE campaign_id = '$cID';";
                                                 $result2 = $conn->query($sql2);
-                                                while ($row2 = mysqli_fetch_array($result2)) {
-                                                    echo $row2['SUM(amount)'];
+                                                if (mysqli_num_rows($result2) === 1) {
+                                                    while ($row2 = mysqli_fetch_array($result2)) {
+                                                        if ($row2['SUM(amount)'] != NULL) {
+                                                            echo $row2['SUM(amount)'];
+                                                        } else {
+                                                            echo 0;
+                                                        }
+                                                    }
                                                 }
                                                 ?>
                         </h6>
@@ -279,7 +293,7 @@ if (isset($_POST['submit'])) {
 
 
     <footer class=" mt-5">
-        
+
         <?php include '../includes/footer.php' ?>
     </footer>
 
@@ -317,19 +331,18 @@ if (isset($_POST['submit'])) {
         })
 
         const progressAmount = parseInt(document.getElementById('progressAmount').innerHTML);
-        const tAmount = parseInt(document.getElementById('tAmount').innerHTML);
-        
-        if(progressAmount>=tAmount){
-        document.getElementById('progress').style.width = '100%';
-        document.getElementById('progressAmount').innerHTML = tAmount;
-        document.getElementById('donateNowBtn').disabled = true;
-      }
-      else{
-        const progressPercentage = (progressAmount / tAmount) * 100;
-        console.log(progressPercentage);
-        document.getElementById('progress').style.width = progressPercentage + "%";
-      }
 
+        const tAmount = parseInt(document.getElementById('tAmount').innerHTML);
+
+        if (progressAmount >= tAmount) {
+            document.getElementById('progress').style.width = '100%';
+            document.getElementById('progressAmount').innerHTML = tAmount;
+            document.getElementById('donateNowBtn').disabled = true;
+        } else {
+            const progressPercentage = (progressAmount / tAmount) * 100;
+            console.log(progressPercentage);
+            document.getElementById('progress').style.width = progressPercentage + "%";
+        }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

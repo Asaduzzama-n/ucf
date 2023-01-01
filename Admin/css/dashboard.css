@@ -6,6 +6,10 @@ nav{
     width: 100%;
 
 }
+.navStyle >a >h1{
+    font-weight: bolder;
+    color: #142F43;
+}
 .navStyle{
     display: flex;
     justify-content: space-between;

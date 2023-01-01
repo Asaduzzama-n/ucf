@@ -15,6 +15,8 @@ $loggedIn = $_GET['loggedIn'];
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UCF</title>
   <link rel="stylesheet" href="./success.css">
+
+
   <link rel="stylesheet" href="../../css/nav.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <script src="../../js/script.js"></script>
@@ -26,9 +28,9 @@ $loggedIn = $_GET['loggedIn'];
 
 <body>
 
-  <header class="container">
+  <header class="">
     <div class="navigation">
-      <div class="leftLogo">
+      <div class="leftLogo mx-5">
         <?php if ($loggedIn == 'true') { ?>
           <a href="../../index.php?loggedIn=true">
             <h1>UIUCF</h1>
@@ -45,10 +47,10 @@ $loggedIn = $_GET['loggedIn'];
                                         // echo $_SESSION['userProfile'];
                                         if ($loggedIn == 'false') {
                                         ?>
-                                          <img src="../../images/others/man.png" width="70px" alt="">
-                                        <?php } else { ?>
-                                          <img class="prStyle" src="<?php echo '../../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
-                                        <?php } ?></button>
+              <img src="../../images/others/man.png" width="70px" alt="">
+            <?php } else { ?>
+              <img class="prStyle" src="<?php echo '../../images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
+            <?php } ?></button>
           <div id="nav" class="linkContainer ">
             <div class="triangle-up">
             </div>
@@ -104,34 +106,9 @@ $loggedIn = $_GET['loggedIn'];
       </div>
     </div>
   </header>
-<br>
-  <section class="container my-5">
-    <div class="row my-5">
-      <div class="col-md-4 mt-2">
-        <div class="d-flex">
-          <img src="../../images/others/quality.png" width="35px" alt="">
-          <h5 class="mx-2">Verified</h5>
-        </div>
-        <p>Every fundraiser on this page has been verified by our Trust & Safety experts.</p>
-      </div>
-      <div class="col-md-4 mt-2">
-        <div class="d-flex">
-          <img src="../../images/others/punch.png" width="30px" alt="">
-          <h5 class="mx-2">Powerful</h5>
-        </div>
-        <p>Your donation helps the people and communities affected by this event.</p>
-      </div>
-      <div class="col-md-4 mt-2">
-        <div class="d-flex">
-          <img src="../../images/others/trust.png" width="30px" alt="">
-          <h5 class="mx-2">Trusted</h5>
-        </div>
-        <p>You’re covered by the UIUCF Giving Guarantee—our money-back donor protection guarantee.</p>
-      </div>
-    </div>
-    <br>
-
-    <div class="startFund mt-5">
+  <br>
+  <section class="container">
+    <div class="startFund my-5">
       <h1>Share your story and start your own fundraising <br> journey with<span style="color:#F78924; font-style:italic; font-weight:bold;"> UIUCF!</span></h1>
       <br>
       <?php if ($loggedIn == 'true') { ?>
@@ -144,7 +121,7 @@ $loggedIn = $_GET['loggedIn'];
 
 
   </section>
-<br>
+  <br>
 
   <?php
   $conn = new mysqli('localhost', 'root', '', 'fund_future');
@@ -168,21 +145,29 @@ $loggedIn = $_GET['loggedIn'];
             </div>
             <div class="textGroup mt-3">
               <h3>Campaigner ID: <?php echo $row['user_id'] ?></h3>
+
+
               <hr>
               <h4><?php echo $row['camp_name'] ?></h4>
               <p><?php echo $row['camp_desc'] ?></p>
               <div class="d-flex">
-              <strong>$ <?php
-                  $cID = $row['campaign_id'];
-                  $sql2 = "SELECT SUM(amount) FROM donation WHERE campaign_id = '$cID';";
-                  $result2 = $conn->query($sql2);
-                  while ($row2 = mysqli_fetch_array($result2)) {
-                    echo $row2['SUM(amount)'];
-                  }
-                  ?>
+                <strong>$ <?php
+                          $cID = $row['campaign_id'];
+                          $sql2 = "SELECT SUM(amount) FROM donation WHERE campaign_id = '$cID';";
+                          $result2 = $conn->query($sql2);
+                          while ($row2 = mysqli_fetch_array($result2)) {
+                            echo $row2['SUM(amount)'];
+                          }
+                          ?>
                 </strong>
                 <strong class="mx-2">raised of </strong>
-              <strong>$ <?php echo $row['target_amount'] ?> goal</strong>
+                <strong>$ <?php echo $row['target_amount'] ?> goal</strong>
+
+                <div class="progressParent mt-4">
+                  <div id="progress" class="progressChild">
+                    
+                  </div>
+                </div>
 
               </div>
 
@@ -200,12 +185,27 @@ $loggedIn = $_GET['loggedIn'];
     </div>
   </section>
 
-  <footer class="container mt-5">
-    <hr>
+  <footer class=" mt-5">
+
     <?php include '../../includes/footer.php' ?>
   </footer>
 
 
+  <script>
+    const progressAmount = parseInt(document.getElementById('progressAmount').innerHTML);
+        const tAmount = parseInt(document.getElementById('tAmount').innerHTML);
+        
+        if(progressAmount>=tAmount){
+        document.getElementById('progress').style.width = '100%';
+        document.getElementById('progressAmount').innerHTML = tAmount;
+        document.getElementById('donateNowBtn').disabled = true;
+      }
+      else{
+        const progressPercentage = (progressAmount / tAmount) * 100;
+        console.log(progressPercentage);
+        document.getElementById('progress').style.width = progressPercentage + "%";
+      }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

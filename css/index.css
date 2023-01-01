@@ -12,6 +12,8 @@ body{
     
 
 }
+
+
 .demoContainer {
     width: 100%;
     margin: auto;
@@ -24,7 +26,7 @@ body{
     margin-top: 10px;
     width: 100%!important;
     height: 600px;
-    z-index: 0;
+    /* z-index: 0; */
 }
 .successStories{
     width: 100%;

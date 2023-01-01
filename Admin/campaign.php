@@ -116,10 +116,10 @@ else{
                         <td> <p class='activeStatus'> $status </p> </td>
                         <td class='d-flex'> 
                         <a class='approveDesign mx-3' href=./campaign.php?id=" . $row['campaign_id'] . "&approve=true&cancel=false>
-                        <img src='../images/others/approval.png' width='30px'>
+                        <img src='../images/others/check (1).png' width='30px'>
                         </a> 
                         <a class='cancelDesign mx-3' href=./campaign.php?id=" . $row['campaign_id'] . "&approve=false&cancel=true>
-                        <img src='../images/others/not-approved.png' width='30px'>
+                        <img src='../images/others/multiply.png' width='30px'>
                         </a> 
                         </td>
 
@@ -134,10 +134,10 @@ else{
                         <td> <p class='pendingStatus'> $status </p> </td>
                         <td class='d-flex'> 
                         <a class='approveDesign mx-3' href=./campaign.php?id=" . $row['campaign_id'] . "&approve=true&cancel=false>
-                        <img src='../images/others/approval.png' width='30px'>
+                        <img src='../images/others/check (1).png' width='30px'>
                         </a> 
                         <a class='cancelDesign mx-3' href=./campaign.php?id=" . $row['campaign_id'] . "&approve=false&cancel=true>
-                        <img src='../images/others/not-approved.png' width='30px'>
+                        <img src='../images/others/multiply.png' width='30px'>
                         </a> 
                         </td>
                         </tr>";
@@ -151,10 +151,10 @@ else{
                         <td> <p class='finishStatus'> $status </p> </td>
                         <td class='d-flex'> 
                         <a class='approveDesign mx-3' href=./campaign.php?id=" . $row['campaign_id'] . "&approve=true&cancel=false>
-                        <img src='../images/others/approval.png' width='30px'>
+                        <img src='../images/others/check (1).png' width='30px'>
                         </a> 
                         <a class='cancelDesign mx-3' href=./campaign.php?id=" . $row['campaign_id'] . "&approve=false&cancel=true>
-                        <img src='../images/others/not-approved.png' width='30px'>
+                        <img src='../images/others/multiply.png' width='30px'>
                         </a> 
                         </td>
                         </tr>";
@@ -168,10 +168,10 @@ else{
                         <td> <p class='cancelStatus'> $status </p> </td>
                         <td class='d-flex'> 
                         <a class='approveDesign mx-3' href=./campaign.php?id=" . $row['campaign_id'] . "&approve=true&cancel=false>
-                        <img src='../images/others/approval.png' width='30px'>
+                        <img src='../images/others/check (1).png' width='30px'>
                         </a> 
                         <a class='cancelDesign mx-3' href=./campaign.php?id=" . $row['campaign_id'] . "&approve=false&cancel=true>
-                        <img src='../images/others/not-approved.png' width='30px'>
+                        <img src='../images/others/multiply.png' width='30px'>
                         </a> 
                         </td>
                         </tr>";

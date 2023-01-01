@@ -29,7 +29,19 @@ $loggedIn = $_GET['loggedIn'];
 
 
 </head>
-
+<style>
+  .carText strong{
+    color: white!important;
+    
+}
+.h4C a{
+  text-decoration: none;
+  color: white;
+}
+.h4C a:hover{
+  color: #F98012;
+}
+</style>
 
 <body>
   <header class="">
@@ -51,15 +63,15 @@ $loggedIn = $_GET['loggedIn'];
                                         // echo $_SESSION['userProfile'];
                                         if ($loggedIn == 'false') {
                                         ?>
-                                          <img src="./images/others/man.png" width="70px" alt="">
-                                        <?php } else { ?>
-                                          <?php if($_SESSION['userProfile']=='NULL'){
-                                            ?>
-                                            <img src="./images/others/man.png" width="70px" alt="">
-                                            <?php } else { ?>
-                                            <img class="prStyle" src="<?php echo './images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt=""> 
-                                            <?php } ?>
-                                        <?php } ?></button>
+              <img src="./images/others/man.png" width="70px" alt="">
+            <?php } else { ?>
+              <?php if ($_SESSION['userProfile'] == 'NULL') {
+              ?>
+                <img src="./images/others/man.png" width="70px" alt="">
+              <?php } else { ?>
+                <img class="prStyle" src="<?php echo './images/userProfilePic/' . $_SESSION['userProfile'] ?> " width="40px" alt="">
+              <?php } ?>
+            <?php } ?></button>
           <div id="nav" class="linkContainer ">
             <div class="triangle-up">
             </div>
@@ -119,7 +131,7 @@ $loggedIn = $_GET['loggedIn'];
   <main class="container">
 
 
-    <section class="carouselContainer customStyle">
+    <section class="carouselContainer">
       <div id="carouselExampleDark" class="carousel rounded carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -130,8 +142,8 @@ $loggedIn = $_GET['loggedIn'];
           <div class="carousel-item active " data-bs-interval="10000">
             <img src="./images/others/UIU-Banner-New-scaled.jpg" height="600px" width="800px" class="d-block w-100 " alt="...">
             <div class="carousel-caption d-none d-md-block">
-
-              <h4><?php if ($loggedIn == 'true') { ?>
+              <h1 class="carText mb-4"><strong>Welcome To UIUCF</strong></h1>
+              <h4 class="h4C"><?php if ($loggedIn == 'true') { ?>
                   <a class="mx-3 " href="./Campaign/startCampaign/startCampaign.php?loggedIn=true">Start Your Own Campaign</a>
                 <?php } else { ?>
                   <a class="mx-3 " href="./login.php">Start Your Own Campaign</a>
@@ -143,7 +155,10 @@ $loggedIn = $_GET['loggedIn'];
           <div class="carousel-item customStyle" data-bs-interval="2000">
             <img src="./images/carousel/UIU-Campus-2.jpg" height="600px" width="800px" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block customLink">
-              <h4><?php if ($loggedIn == 'true') { ?>
+            <h1 class="carText mb-4"><strong>Tell You Story</strong></h1>
+
+
+              <h4 class="h4C"><?php if ($loggedIn == 'true') { ?>
                   <a class="mx-3 " href="./Campaign/startCampaign/startCampaign.php?loggedIn=true">Start Your Own Campaign</a>
                 <?php } else { ?>
                   <a class="mx-3 " href="./login.php">Start Your Own Campaign</a>
@@ -155,7 +170,9 @@ $loggedIn = $_GET['loggedIn'];
           <div class="carousel-item customStyle">
             <img src="./images/carousel/UIU-Campus0-1024x767.jpg" height="600px" width="800px" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h4><?php if ($loggedIn == 'true') { ?>
+            <h1 class="carText mb-4"><strong>Share with Others</strong></h1>
+
+              <h4 class="h4C"><?php if ($loggedIn == 'true') { ?>
                   <a class="mx-3 " href="./Campaign/startCampaign/startCampaign.php?loggedIn=true">Start Your Own Campaign</a>
                 <?php } else { ?>
                   <a class="mx-3 " href="./login.php">Start Your Own Campaign</a>
@@ -284,7 +301,14 @@ $loggedIn = $_GET['loggedIn'];
               </div>
               <div class="textGroup">
                 <p><?php echo $row2['camp_name'] ?></p>
-                <a href="#">View More <img src="./images/others/right-arrow.png" width="20px" alt=""></a>
+                <?php if ($loggedIn == 'true') { ?>
+                  <!-- <a href="./Campaign//displayCampaign/viewMore.php"></a> -->
+                  <a href="./Campaign/displayCampaign/viewMore.php?cID=<?php echo $row2['campaign_id']; ?>&loggedIn=true">View More<img src="./images/others/right-arrow.png" width="20px" alt=""></a>
+                <?php } else { ?>
+                  <a href="./Campaign/displayCampaign/viewMore.php?cID=<?php echo $row2['campaign_id']; ?>&loggedIn=false">View More<img src="./images/others/right-arrow.png" width="20px" alt=""></a>
+
+                <?php } ?>
+
               </div>
             </div>
           <?php } ?>
@@ -298,8 +322,8 @@ $loggedIn = $_GET['loggedIn'];
       </div>
       <div class="seeAllBtn mt-5">
 
-      <?php if ($loggedIn == 'true') { ?>
-        <a href="./Campaign/displayCampaign/successStory.php?loggedIn=true"><button>See all Success Story<img src="./images/others/right-arrow (1).png" width="20px" alt=""></button></a>
+        <?php if ($loggedIn == 'true') { ?>
+          <a href="./Campaign/displayCampaign/successStory.php?loggedIn=true"><button>See all Success Story<img src="./images/others/right-arrow (1).png" width="20px" alt=""></button></a>
         <?php } else { ?>
           <a href="./Campaign/displayCampaign/successStory.php?loggedIn=false"><button>See all Success Story<img src="./images/others/right-arrow (1).png" width="20px" alt=""></button></a>
         <?php } ?>
